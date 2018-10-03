@@ -20,3 +20,15 @@ C:\Users\emanuel.islas\Desktop\Falp\Sistemas\Escritorios\Ges\Ges_2M\Modificacion
 C:\Users\emanuel.islas\Desktop\Falp\Sistemas\Escritorios\Ges\Ges_2M\Modificacion\GES002M\GES002M\obj\x86\Debug\GES002M.Frm_Agregar_Observacion_v2.resources
 C:\Users\emanuel.islas\Desktop\Falp\Sistemas\Escritorios\Ges\Ges_2M\Modificacion\GES002M\GES002M\obj\x86\Debug\GES002M.csprojResolveAssemblyReference.cache
 C:\Users\emanuel.islas\Desktop\Falp\Sistemas\Escritorios\Ges\Ges_2M\Modificacion\GES002M\GES002M\obj\x86\Debug\GES002M.csproj.GenerateResource.Cache
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\bin\Debug\GES002M.exe.config
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\GES002M.exe
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\GES002M.pdb
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\bin\Debug\GES002M.exe
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\bin\Debug\GES002M.pdb
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\GES002M.csprojResolveAssemblyReference.cache
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\GES002M.GES002M.resources
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\GES002M.Frm_Agregar_Observacion.resources
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\GES002M.Frm_Agregar_Observacion_v2.resources
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\Ges000M.Frm_Buscar.resources
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\GES002M.Properties.Resources.resources
+C:\Users\emanuel.islas\Desktop\Proyectos_Terminados\Ges\Ges_2m\GES002M\GES002M\obj\x86\Debug\GES002M.csproj.GenerateResource.Cache

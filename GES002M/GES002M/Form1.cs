@@ -330,12 +330,23 @@ namespace GES002M
            dt_patologias.Load(CnnFalp.ExecuteReader());
            Gv_Casos.DataSource = new DataView(dt_patologias, "VIG ='S'", "", DataViewRowState.CurrentRows);
            CnnFalp.Cerrar();
+           int cont=0;
+           if (dt_patologias.Rows.Count>0)
+           {
+               foreach (DataRow fila in dt_patologias.Rows)
+               {
+                   cont += 1;
+                   fila["POSICION"] = cont;
+                   cont++;
+               }
+           }
+
        }
 
        private void Gv_Casos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
        {
           
-           v_cod_id = Convert.ToInt32(Gv_Casos.Rows[e.RowIndex].Cells["ID_FILA"].Value.ToString());
+           v_cod_id = Convert.ToInt32(Gv_Casos.Rows[e.RowIndex].Cells["POSICION"].Value.ToString());
            Int64 cod_patologia = Convert.ToInt64(Gv_Casos.Rows[e.RowIndex].Cells["COD_PATOLOGIA"].Value.ToString());
            Int64 cod_etapa = Convert.ToInt64(Gv_Casos.Rows[e.RowIndex].Cells["COD_ETAPA"].Value.ToString());
            Int64 cod_sub_etapa = Convert.ToInt64(Gv_Casos.Rows[e.RowIndex].Cells["COD_SUB_ETAPA"].Value.ToString());
@@ -373,7 +384,7 @@ namespace GES002M
                            }
                            else
                            {
-                               foreach (DataRow fila in dt_patologias.Select(" ID_FILA= " + v_cod_id))
+                               foreach (DataRow fila in dt_patologias.Select(" POSICION= " + v_cod_id))
                                {
 
                                    if (fila["VIG"].ToString() == "S")
@@ -632,17 +643,27 @@ namespace GES002M
 
        private void btnPaquete_Click(object sender, EventArgs e)
        {
-           txtPaquete.Text = ""; txtPaquete.Tag = 0;
-           TraePaquetes(ref Ayuda, txtPaquete.Text);
-           if (!Ayuda.EOF())
+           txtPaquete.Text = "";
+           txtPaquete.Tag = "";
+           Cargar_Paquete();
+           if (Validar_paquete())
            {
-               txtPaquete.Tag = Convert.ToInt32(Ayuda.Fields(0));
-               txtPaquete.Text = Ayuda.Fields(1);
-               // txtDiasVig.Text = Ayuda.Fields(3);
+
+               if (txtPaquete.Text != "")
+               {
+                   txtDiasVig.Focus();
+               }
+               else
+               {
+                   txtPaquete.Focus();
+               }
            }
+
            else
            {
-               txtPaquete.Focus();
+               MessageBox.Show("Estimado Usuario, El Paquete no esta asociado con esa Institución, por Favor Comunicarse con el área Comercial, para su vinculación  ", "Informacion Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               txtPaquete.Text = "";
+               txtPaquete.Tag = "";
            }
 
        }
@@ -676,7 +697,27 @@ namespace GES002M
            }
            if (e.KeyChar == (char)13)
            {
-               TraePaquetes(ref Ayuda, txtPaquete.Text);
+               Cargar_Paquete();
+               if (Validar_paquete())
+               {
+
+                   if (txtPaquete.Text != "")
+                   {
+                       txtDiasVig.Focus();
+                   }
+                   else
+                   {
+                       txtPaquete.Focus();
+                   }
+               }
+
+               else
+               {
+                   MessageBox.Show("Estimado Usuario, El Paquete no esta asociado con esa Institución, por Favor Comunicarse con el área Comercial, para su vinculación  ", "Informacion Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   txtPaquete.Text = "";
+                   txtPaquete.Tag = "";
+               }
+               /*TraePaquetes(ref Ayuda, txtPaquete.Text);
                if (!Ayuda.EOF())
                {
                    txtPaquete.Tag = Convert.ToInt32(Ayuda.Fields(0));
@@ -689,7 +730,35 @@ namespace GES002M
                else
                {
                    txtPaquete.Focus();
-               }
+               }*/
+           }
+       }
+
+       private void Cargar_Paquete()
+       {
+
+           TraePaquetes(ref Ayuda, txtPaquete.Text);
+           if (!Ayuda.EOF())
+           {
+               txtPaquete.Tag = Ayuda.Fields(0);
+               txtPaquete.Text = Ayuda.Fields(1);
+               txtDiasVig.Text = "0";
+               txtFecTermino.Text = txtRecepcion.Value.AddDays(Convert.ToDouble(txtDiasVig.Text)).ToShortDateString();
+
+               DateTime fecha1 = Convert.ToDateTime(txtFecTermino.Text);
+               DateTime fecha2 = Convert.ToDateTime(txtRecepcion.Text);
+
+               TimeSpan dias = fecha1.Subtract(fecha2);
+
+               txtDiasRestantes.Text = dias.Days.ToString();
+
+
+               txtIniGES.Enabled = true;
+               txtRecepcion.Enabled = true;
+               txtRespaldo.Enabled = true;
+               txtIniGES.CustomFormat = "dd/MM/yyyy";
+               txtRecepcion.CustomFormat = "dd/MM/yyyy";
+               btnAgregar.Focus();
            }
        }
 
@@ -728,7 +797,8 @@ namespace GES002M
                if (Validar_campos_pat())
                {
 
-                   foreach (DataRow fila in dt_patologias.Select(" ID_FILA= '" + v_cod_id + "' AND  COD_ETAPA='" + txtEtapa.Tag + "' AND  COD_SUB_ETAPA='" + txtSubEtapa.Tag + "' AND  COD_PAQUETE='" + txtPaquete.Tag + "'"))
+                  // foreach (DataRow fila in dt_patologias.Select(" ID_FILA= '" + v_cod_id + "' AND  COD_ETAPA='" + txtEtapa.Tag + "' AND  COD_SUB_ETAPA='" + txtSubEtapa.Tag + "' AND  COD_PAQUETE='" + txtPaquete.Tag + "'"))
+                   foreach (DataRow fila in dt_patologias.Select(" POSICION= '" + v_cod_id + "' "))
                       
                    {
                        fila["COD_PATOLOGIA"] = txtPatologia.Tag;
@@ -742,6 +812,7 @@ namespace GES002M
                        fila["DIAS"] = txtDiasVig.Text;
                        fila["FECHA_INICIO"] = txtIniGES.Text;
                        fila["FECHA_RECEPCION"] = txtRecepcion.Text;
+                       fila["POSICION"] = v_cod_id;
                        fila["OBSERVACION"] = "";
 
                        MessageBox.Show("Estimado usuario, Cambio  realizado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -749,31 +820,9 @@ namespace GES002M
                }
                else
                {
-                   if (mod_pat == "S")
-                   {
-                       foreach (DataRow fila in dt_patologias.Select(" ID_FILA= '" + v_cod_id + "' AND  COD_ETAPA='" + txtEtapa.Tag + "' AND  COD_SUB_ETAPA='" + txtSubEtapa.Tag + "' AND  COD_PAQUETE='" + txtPaquete.Tag + "'"))
-                       {
-                           fila["COD_PATOLOGIA"] = txtPatologia.Tag;
-                           fila["NOM_PATOLOGIA"] = txtPatologia.Text;
-                           fila["COD_ETAPA"] = txtEtapa.Tag;
-                           fila["NOM_ETAPA"] = txtEtapa.Text;
-                           fila["COD_SUB_ETAPA"] = txtSubEtapa.Tag;
-                           fila["NOM_SUB_ETAPA"] = txtSubEtapa.Text;
-                           fila["COD_PAQUETE"] = txtPaquete.Tag;
-                           fila["NOM_PAQUETE"] = txtPaquete.Text;
-                           fila["DIAS"] = txtDiasVig.Text;
-                           fila["FECHA_INICIO"] = txtIniGES.Text;
-                           fila["FECHA_RECEPCION"] = txtRecepcion.Text;
-                           fila["OBSERVACION"] = "";
-
-                           MessageBox.Show("Estimado usuario, Cambio  realizado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                       }
-                   }
-                   else
-                   {
-                       MessageBox.Show("Estimado Usuario, La Etapa, Sub Etapa y Paquete, ya se encuentra Registrada en la Lista", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                               
-                   }
+                 
+                 MessageBox.Show("Estimado Usuario, La Etapa, Sub Etapa y Paquete, ya se encuentra Registrada en la Lista", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+   
                }
                limpiar_patologias();
 
@@ -823,6 +872,7 @@ namespace GES002M
                               fila["FECHA_INICIO"] = txtIniGES.Text;
                               fila["FECHA_RECEPCION"] = txtRecepcion.Text;
                               fila["COD_ESTAD"] = 1;
+                              fila["POSICION"] = Convert.ToInt32(dt_patologias.Compute("max([POSICION])", string.Empty))+1;
 
                               fila["VIG"] = "S";
                               fila["NOM_ESTAD"] = "Iniciado";
@@ -854,6 +904,8 @@ namespace GES002M
               txtEtapa.Focus();
 
        }
+
+  
 
        private Boolean Validar_paquete()
        {
@@ -944,7 +996,7 @@ namespace GES002M
 
        private void mod_estado_pat(int cod, string nom)
        {
-           foreach (DataRow fila3 in dt_patologias.Select(" ID_FILA ='" + v_cod_id + "'"))
+           foreach (DataRow fila3 in dt_patologias.Select(" POSICION ='" + v_cod_id + "'"))
            {
                fila3["COD_ESTAD"] = cod;
                fila3["NOM_ESTAD"] = nom;
@@ -1423,7 +1475,8 @@ namespace GES002M
 
                if (e.KeyChar == (char)13)
                {
-                   Cargar_prestaciones(ref Ayuda, Convert.ToInt32(txtcod.Text), txtdescripcion.Text.ToUpper().ToString(), Convert.ToInt32(txttipo.Tag));
+                   int cod = txtcod.Text.Equals(string.Empty) ? 0 : Convert.ToInt32(txtcod.Text);
+                   Cargar_prestaciones(ref Ayuda, cod, txtdescripcion.Text.ToUpper().ToString(), Convert.ToInt32(txttipo.Tag));
                    if (!Ayuda.EOF())
                    {
                        txtcod.Text = Ayuda.Fields(0);
@@ -1442,7 +1495,7 @@ namespace GES002M
        private void Cargar_prestaciones(ref AyudaSpreadNet.AyudaSprNet Ayuda, Int32 cod, string descripcion,int tipo)
        {
            string[] NomCol = { "Codigo", "Descripción", "Valor" };
-           int[] AnchoCol = { 80, 350, 50 };
+           int[] AnchoCol = { 70, 300, 50 };
            Ayuda.Nombre_BD_Datos = CnnFalp.DBNombre;
            Ayuda.Pass = CnnFalp.DBPass;
            Ayuda.User = CnnFalp.DBUser;

@@ -122,26 +122,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.Gv_Casos = new System.Windows.Forms.DataGridView();
-            this.E1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.M = new System.Windows.Forms.DataGridViewImageColumn();
-            this.O = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ID_FILA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOM_PATOLOGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOM_ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOM_SUB_ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOM_PAQUETE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FEC_INICIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FEC_RECEPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA_TERMINO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOM_ESTAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COD_PATOLOGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COD_ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COD_SUB_ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COD_PAQUETE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COD_ESTAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VIG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBSERVACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Paciente = new Paciente.Ctrl_Paciente();
             this.Ayuda = new AyudaSpreadNet.AyudaSprNet();
             this.btn_confirmar = new System.Windows.Forms.Button();
@@ -191,6 +171,27 @@
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.gr_cont = new System.Windows.Forms.GroupBox();
+            this.E1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.M = new System.Windows.Forms.DataGridViewImageColumn();
+            this.O = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ID_FILA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOM_PATOLOGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOM_ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOM_SUB_ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOM_PAQUETE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FEC_INICIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FEC_RECEPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA_TERMINO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOM_ESTAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COD_PATOLOGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COD_ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COD_SUB_ETAPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COD_PAQUETE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COD_ESTAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VIG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBSERVACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.POSICION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpPaciente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grilla_historial)).BeginInit();
             this.grpDatosGES.SuspendLayout();
@@ -1188,7 +1189,8 @@
             this.COD_PAQUETE,
             this.COD_ESTAD,
             this.VIG,
-            this.OBSERVACION});
+            this.OBSERVACION,
+            this.POSICION});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1214,198 +1216,6 @@
             this.Gv_Casos.TabIndex = 80;
             this.Gv_Casos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Gv_Casos_CellDoubleClick);
             this.Gv_Casos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Gv_Casos_CellPainting);
-            // 
-            // E1
-            // 
-            this.E1.Frozen = true;
-            this.E1.HeaderText = "E";
-            this.E1.Image = ((System.Drawing.Image)(resources.GetObject("E1.Image")));
-            this.E1.Name = "E1";
-            this.E1.ReadOnly = true;
-            this.E1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.E1.Width = 25;
-            // 
-            // M
-            // 
-            this.M.DataPropertyName = "M";
-            this.M.Frozen = true;
-            this.M.HeaderText = "M";
-            this.M.Image = ((System.Drawing.Image)(resources.GetObject("M.Image")));
-            this.M.Name = "M";
-            this.M.ReadOnly = true;
-            this.M.Width = 25;
-            // 
-            // O
-            // 
-            this.O.Frozen = true;
-            this.O.HeaderText = "O";
-            this.O.Image = global::GES002M.Properties.Resources.arch;
-            this.O.Name = "O";
-            this.O.ReadOnly = true;
-            this.O.ToolTipText = "Ingresar Observaciones";
-            this.O.Width = 25;
-            // 
-            // ID_FILA
-            // 
-            this.ID_FILA.DataPropertyName = "ID_FILA";
-            this.ID_FILA.Frozen = true;
-            this.ID_FILA.HeaderText = "ID_FILA";
-            this.ID_FILA.Name = "ID_FILA";
-            this.ID_FILA.ReadOnly = true;
-            this.ID_FILA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ID_FILA.Visible = false;
-            // 
-            // NOM_PATOLOGIA
-            // 
-            this.NOM_PATOLOGIA.DataPropertyName = "NOM_PATOLOGIA";
-            this.NOM_PATOLOGIA.Frozen = true;
-            this.NOM_PATOLOGIA.HeaderText = "Patologia";
-            this.NOM_PATOLOGIA.Name = "NOM_PATOLOGIA";
-            this.NOM_PATOLOGIA.ReadOnly = true;
-            this.NOM_PATOLOGIA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NOM_PATOLOGIA.Width = 200;
-            // 
-            // NOM_ETAPA
-            // 
-            this.NOM_ETAPA.DataPropertyName = "NOM_ETAPA";
-            this.NOM_ETAPA.Frozen = true;
-            this.NOM_ETAPA.HeaderText = "Etapa";
-            this.NOM_ETAPA.Name = "NOM_ETAPA";
-            this.NOM_ETAPA.ReadOnly = true;
-            this.NOM_ETAPA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // NOM_SUB_ETAPA
-            // 
-            this.NOM_SUB_ETAPA.DataPropertyName = "NOM_SUB_ETAPA";
-            this.NOM_SUB_ETAPA.Frozen = true;
-            this.NOM_SUB_ETAPA.HeaderText = "Sub Etapa";
-            this.NOM_SUB_ETAPA.Name = "NOM_SUB_ETAPA";
-            this.NOM_SUB_ETAPA.ReadOnly = true;
-            this.NOM_SUB_ETAPA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NOM_SUB_ETAPA.Width = 90;
-            // 
-            // NOM_PAQUETE
-            // 
-            this.NOM_PAQUETE.DataPropertyName = "NOM_PAQUETE";
-            this.NOM_PAQUETE.Frozen = true;
-            this.NOM_PAQUETE.HeaderText = "Canasta";
-            this.NOM_PAQUETE.Name = "NOM_PAQUETE";
-            this.NOM_PAQUETE.ReadOnly = true;
-            this.NOM_PAQUETE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NOM_PAQUETE.Width = 200;
-            // 
-            // DIAS
-            // 
-            this.DIAS.DataPropertyName = "DIAS";
-            this.DIAS.Frozen = true;
-            this.DIAS.HeaderText = "Dias V.";
-            this.DIAS.Name = "DIAS";
-            this.DIAS.ReadOnly = true;
-            this.DIAS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DIAS.Width = 35;
-            // 
-            // FEC_INICIO
-            // 
-            this.FEC_INICIO.DataPropertyName = "FECHA_INICIO";
-            this.FEC_INICIO.Frozen = true;
-            this.FEC_INICIO.HeaderText = "Fecha Inicio";
-            this.FEC_INICIO.Name = "FEC_INICIO";
-            this.FEC_INICIO.ReadOnly = true;
-            this.FEC_INICIO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.FEC_INICIO.Width = 66;
-            // 
-            // FEC_RECEPCION
-            // 
-            this.FEC_RECEPCION.DataPropertyName = "FECHA_RECEPCION";
-            this.FEC_RECEPCION.Frozen = true;
-            this.FEC_RECEPCION.HeaderText = "Fecha Recepccion";
-            this.FEC_RECEPCION.Name = "FEC_RECEPCION";
-            this.FEC_RECEPCION.ReadOnly = true;
-            this.FEC_RECEPCION.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.FEC_RECEPCION.Width = 66;
-            // 
-            // FECHA_TERMINO
-            // 
-            this.FECHA_TERMINO.DataPropertyName = "FECHA_TERMINO";
-            this.FECHA_TERMINO.Frozen = true;
-            this.FECHA_TERMINO.HeaderText = "Fecha Termino";
-            this.FECHA_TERMINO.Name = "FECHA_TERMINO";
-            this.FECHA_TERMINO.ReadOnly = true;
-            this.FECHA_TERMINO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.FECHA_TERMINO.Width = 66;
-            // 
-            // NOM_ESTAD
-            // 
-            this.NOM_ESTAD.DataPropertyName = "NOM_ESTAD";
-            this.NOM_ESTAD.Frozen = true;
-            this.NOM_ESTAD.HeaderText = "Estado";
-            this.NOM_ESTAD.Name = "NOM_ESTAD";
-            this.NOM_ESTAD.ReadOnly = true;
-            this.NOM_ESTAD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // COD_PATOLOGIA
-            // 
-            this.COD_PATOLOGIA.DataPropertyName = "COD_PATOLOGIA";
-            this.COD_PATOLOGIA.Frozen = true;
-            this.COD_PATOLOGIA.HeaderText = "COD_PATOLOGIA";
-            this.COD_PATOLOGIA.Name = "COD_PATOLOGIA";
-            this.COD_PATOLOGIA.ReadOnly = true;
-            this.COD_PATOLOGIA.Visible = false;
-            // 
-            // COD_ETAPA
-            // 
-            this.COD_ETAPA.DataPropertyName = "COD_ETAPA";
-            this.COD_ETAPA.Frozen = true;
-            this.COD_ETAPA.HeaderText = "COD_ETAPA";
-            this.COD_ETAPA.Name = "COD_ETAPA";
-            this.COD_ETAPA.ReadOnly = true;
-            this.COD_ETAPA.Visible = false;
-            // 
-            // COD_SUB_ETAPA
-            // 
-            this.COD_SUB_ETAPA.DataPropertyName = "COD_SUB_ETAPA";
-            this.COD_SUB_ETAPA.Frozen = true;
-            this.COD_SUB_ETAPA.HeaderText = "COD_SUB_ETAPA";
-            this.COD_SUB_ETAPA.Name = "COD_SUB_ETAPA";
-            this.COD_SUB_ETAPA.ReadOnly = true;
-            this.COD_SUB_ETAPA.Visible = false;
-            // 
-            // COD_PAQUETE
-            // 
-            this.COD_PAQUETE.DataPropertyName = "COD_PAQUETE";
-            this.COD_PAQUETE.Frozen = true;
-            this.COD_PAQUETE.HeaderText = "COD_PAQUETE";
-            this.COD_PAQUETE.Name = "COD_PAQUETE";
-            this.COD_PAQUETE.ReadOnly = true;
-            this.COD_PAQUETE.Visible = false;
-            // 
-            // COD_ESTAD
-            // 
-            this.COD_ESTAD.DataPropertyName = "COD_ESTAD";
-            this.COD_ESTAD.Frozen = true;
-            this.COD_ESTAD.HeaderText = "COD_ESTADO";
-            this.COD_ESTAD.Name = "COD_ESTAD";
-            this.COD_ESTAD.ReadOnly = true;
-            this.COD_ESTAD.Visible = false;
-            // 
-            // VIG
-            // 
-            this.VIG.DataPropertyName = "VIG";
-            this.VIG.Frozen = true;
-            this.VIG.HeaderText = "Vigencia";
-            this.VIG.Name = "VIG";
-            this.VIG.ReadOnly = true;
-            this.VIG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.VIG.Visible = false;
-            // 
-            // OBSERVACION
-            // 
-            this.OBSERVACION.DataPropertyName = "OBSERVACION";
-            this.OBSERVACION.HeaderText = "OBSERVACION";
-            this.OBSERVACION.Name = "OBSERVACION";
-            this.OBSERVACION.ReadOnly = true;
-            this.OBSERVACION.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.OBSERVACION.Visible = false;
             // 
             // Paciente
             // 
@@ -2033,6 +1843,206 @@
             this.gr_cont.TabIndex = 96;
             this.gr_cont.TabStop = false;
             // 
+            // E1
+            // 
+            this.E1.Frozen = true;
+            this.E1.HeaderText = "E";
+            this.E1.Image = ((System.Drawing.Image)(resources.GetObject("E1.Image")));
+            this.E1.Name = "E1";
+            this.E1.ReadOnly = true;
+            this.E1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.E1.Width = 25;
+            // 
+            // M
+            // 
+            this.M.DataPropertyName = "M";
+            this.M.Frozen = true;
+            this.M.HeaderText = "M";
+            this.M.Image = ((System.Drawing.Image)(resources.GetObject("M.Image")));
+            this.M.Name = "M";
+            this.M.ReadOnly = true;
+            this.M.Width = 25;
+            // 
+            // O
+            // 
+            this.O.Frozen = true;
+            this.O.HeaderText = "O";
+            this.O.Image = global::GES002M.Properties.Resources.arch;
+            this.O.Name = "O";
+            this.O.ReadOnly = true;
+            this.O.ToolTipText = "Ingresar Observaciones";
+            this.O.Width = 25;
+            // 
+            // ID_FILA
+            // 
+            this.ID_FILA.DataPropertyName = "ID_FILA";
+            this.ID_FILA.Frozen = true;
+            this.ID_FILA.HeaderText = "ID_FILA";
+            this.ID_FILA.Name = "ID_FILA";
+            this.ID_FILA.ReadOnly = true;
+            this.ID_FILA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ID_FILA.Visible = false;
+            // 
+            // NOM_PATOLOGIA
+            // 
+            this.NOM_PATOLOGIA.DataPropertyName = "NOM_PATOLOGIA";
+            this.NOM_PATOLOGIA.Frozen = true;
+            this.NOM_PATOLOGIA.HeaderText = "Patologia";
+            this.NOM_PATOLOGIA.Name = "NOM_PATOLOGIA";
+            this.NOM_PATOLOGIA.ReadOnly = true;
+            this.NOM_PATOLOGIA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NOM_PATOLOGIA.Width = 200;
+            // 
+            // NOM_ETAPA
+            // 
+            this.NOM_ETAPA.DataPropertyName = "NOM_ETAPA";
+            this.NOM_ETAPA.Frozen = true;
+            this.NOM_ETAPA.HeaderText = "Etapa";
+            this.NOM_ETAPA.Name = "NOM_ETAPA";
+            this.NOM_ETAPA.ReadOnly = true;
+            this.NOM_ETAPA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NOM_SUB_ETAPA
+            // 
+            this.NOM_SUB_ETAPA.DataPropertyName = "NOM_SUB_ETAPA";
+            this.NOM_SUB_ETAPA.Frozen = true;
+            this.NOM_SUB_ETAPA.HeaderText = "Sub Etapa";
+            this.NOM_SUB_ETAPA.Name = "NOM_SUB_ETAPA";
+            this.NOM_SUB_ETAPA.ReadOnly = true;
+            this.NOM_SUB_ETAPA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NOM_SUB_ETAPA.Width = 90;
+            // 
+            // NOM_PAQUETE
+            // 
+            this.NOM_PAQUETE.DataPropertyName = "NOM_PAQUETE";
+            this.NOM_PAQUETE.Frozen = true;
+            this.NOM_PAQUETE.HeaderText = "Canasta";
+            this.NOM_PAQUETE.Name = "NOM_PAQUETE";
+            this.NOM_PAQUETE.ReadOnly = true;
+            this.NOM_PAQUETE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NOM_PAQUETE.Width = 200;
+            // 
+            // DIAS
+            // 
+            this.DIAS.DataPropertyName = "DIAS";
+            this.DIAS.Frozen = true;
+            this.DIAS.HeaderText = "Dias V.";
+            this.DIAS.Name = "DIAS";
+            this.DIAS.ReadOnly = true;
+            this.DIAS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DIAS.Width = 35;
+            // 
+            // FEC_INICIO
+            // 
+            this.FEC_INICIO.DataPropertyName = "FECHA_INICIO";
+            this.FEC_INICIO.Frozen = true;
+            this.FEC_INICIO.HeaderText = "Fecha Inicio";
+            this.FEC_INICIO.Name = "FEC_INICIO";
+            this.FEC_INICIO.ReadOnly = true;
+            this.FEC_INICIO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FEC_INICIO.Width = 66;
+            // 
+            // FEC_RECEPCION
+            // 
+            this.FEC_RECEPCION.DataPropertyName = "FECHA_RECEPCION";
+            this.FEC_RECEPCION.Frozen = true;
+            this.FEC_RECEPCION.HeaderText = "Fecha Recepccion";
+            this.FEC_RECEPCION.Name = "FEC_RECEPCION";
+            this.FEC_RECEPCION.ReadOnly = true;
+            this.FEC_RECEPCION.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FEC_RECEPCION.Width = 66;
+            // 
+            // FECHA_TERMINO
+            // 
+            this.FECHA_TERMINO.DataPropertyName = "FECHA_TERMINO";
+            this.FECHA_TERMINO.Frozen = true;
+            this.FECHA_TERMINO.HeaderText = "Fecha Termino";
+            this.FECHA_TERMINO.Name = "FECHA_TERMINO";
+            this.FECHA_TERMINO.ReadOnly = true;
+            this.FECHA_TERMINO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FECHA_TERMINO.Width = 66;
+            // 
+            // NOM_ESTAD
+            // 
+            this.NOM_ESTAD.DataPropertyName = "NOM_ESTAD";
+            this.NOM_ESTAD.Frozen = true;
+            this.NOM_ESTAD.HeaderText = "Estado";
+            this.NOM_ESTAD.Name = "NOM_ESTAD";
+            this.NOM_ESTAD.ReadOnly = true;
+            this.NOM_ESTAD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // COD_PATOLOGIA
+            // 
+            this.COD_PATOLOGIA.DataPropertyName = "COD_PATOLOGIA";
+            this.COD_PATOLOGIA.Frozen = true;
+            this.COD_PATOLOGIA.HeaderText = "COD_PATOLOGIA";
+            this.COD_PATOLOGIA.Name = "COD_PATOLOGIA";
+            this.COD_PATOLOGIA.ReadOnly = true;
+            this.COD_PATOLOGIA.Visible = false;
+            // 
+            // COD_ETAPA
+            // 
+            this.COD_ETAPA.DataPropertyName = "COD_ETAPA";
+            this.COD_ETAPA.Frozen = true;
+            this.COD_ETAPA.HeaderText = "COD_ETAPA";
+            this.COD_ETAPA.Name = "COD_ETAPA";
+            this.COD_ETAPA.ReadOnly = true;
+            this.COD_ETAPA.Visible = false;
+            // 
+            // COD_SUB_ETAPA
+            // 
+            this.COD_SUB_ETAPA.DataPropertyName = "COD_SUB_ETAPA";
+            this.COD_SUB_ETAPA.Frozen = true;
+            this.COD_SUB_ETAPA.HeaderText = "COD_SUB_ETAPA";
+            this.COD_SUB_ETAPA.Name = "COD_SUB_ETAPA";
+            this.COD_SUB_ETAPA.ReadOnly = true;
+            this.COD_SUB_ETAPA.Visible = false;
+            // 
+            // COD_PAQUETE
+            // 
+            this.COD_PAQUETE.DataPropertyName = "COD_PAQUETE";
+            this.COD_PAQUETE.Frozen = true;
+            this.COD_PAQUETE.HeaderText = "COD_PAQUETE";
+            this.COD_PAQUETE.Name = "COD_PAQUETE";
+            this.COD_PAQUETE.ReadOnly = true;
+            this.COD_PAQUETE.Visible = false;
+            // 
+            // COD_ESTAD
+            // 
+            this.COD_ESTAD.DataPropertyName = "COD_ESTAD";
+            this.COD_ESTAD.Frozen = true;
+            this.COD_ESTAD.HeaderText = "COD_ESTADO";
+            this.COD_ESTAD.Name = "COD_ESTAD";
+            this.COD_ESTAD.ReadOnly = true;
+            this.COD_ESTAD.Visible = false;
+            // 
+            // VIG
+            // 
+            this.VIG.DataPropertyName = "VIG";
+            this.VIG.Frozen = true;
+            this.VIG.HeaderText = "Vigencia";
+            this.VIG.Name = "VIG";
+            this.VIG.ReadOnly = true;
+            this.VIG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.VIG.Visible = false;
+            // 
+            // OBSERVACION
+            // 
+            this.OBSERVACION.DataPropertyName = "OBSERVACION";
+            this.OBSERVACION.HeaderText = "OBSERVACION";
+            this.OBSERVACION.Name = "OBSERVACION";
+            this.OBSERVACION.ReadOnly = true;
+            this.OBSERVACION.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.OBSERVACION.Visible = false;
+            // 
+            // POSICION
+            // 
+            this.POSICION.DataPropertyName = "POSICION";
+            this.POSICION.HeaderText = "POSICION";
+            this.POSICION.Name = "POSICION";
+            this.POSICION.ReadOnly = true;
+            this.POSICION.Visible = false;
+            // 
             // GES002M
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2186,26 +2196,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn5;
         private System.Windows.Forms.Button btn_limpiar_patologia;
-        private System.Windows.Forms.DataGridViewImageColumn E1;
-        private System.Windows.Forms.DataGridViewImageColumn M;
-        private System.Windows.Forms.DataGridViewImageColumn O;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_FILA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_PATOLOGIA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_ETAPA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_SUB_ETAPA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_PAQUETE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DIAS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FEC_INICIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FEC_RECEPCION;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_TERMINO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_ESTAD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COD_PATOLOGIA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COD_ETAPA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COD_SUB_ETAPA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COD_PAQUETE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COD_ESTAD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VIG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OBSERVACION;
         private System.Windows.Forms.DataGridViewImageColumn E;
         private System.Windows.Forms.DataGridViewImageColumn MP;
         private System.Windows.Forms.DataGridViewImageColumn OBS;
@@ -2232,6 +2222,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NOM_TIPO_DOC;
         private System.Windows.Forms.DataGridViewTextBoxColumn COD_PATOLOGIA1;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOM_PATOLOGIA1;
+        private System.Windows.Forms.DataGridViewImageColumn E1;
+        private System.Windows.Forms.DataGridViewImageColumn M;
+        private System.Windows.Forms.DataGridViewImageColumn O;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_FILA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_PATOLOGIA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_ETAPA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_SUB_ETAPA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_PAQUETE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FEC_INICIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FEC_RECEPCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_TERMINO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOM_ESTAD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COD_PATOLOGIA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COD_ETAPA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COD_SUB_ETAPA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COD_PAQUETE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COD_ESTAD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VIG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OBSERVACION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn POSICION;
     }
 }
 
